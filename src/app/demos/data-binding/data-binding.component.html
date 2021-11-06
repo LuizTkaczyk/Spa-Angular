@@ -1,6 +1,16 @@
 <div class="container main-container">
     <h3>Interpolação</h3>
-    <p>O numero de cliques é : {{ contarClique }}</p>
+    <!-- <p>O numero de cliques é : {{ contarClique }}</p> -->
+
+
+    <p [ngClass]="{
+        'text-secondary':contarClique < 3,
+        'text-success':contarClique >= 3,
+        'text-warning':contarClique >= 5,
+        'text-danger':contarClique >= 9
+    }">O número de cliques é: {{ contarClique }}</p>
+
+
     <hr>
     <h3>Property binding</h3>
     <button class="btn btn-danger" [disabled]="contarClique >= 10">Info</button>
@@ -22,5 +32,5 @@
     </h3>
     <input type="text" [(ngModel)]="nome2" placeholder="Digite o seu nome">
     <br>
-    <label>Seu nome é: {{nome2}}</label>
+    <label [ngClass]="nome2">Seu nome é: {{nome2}}. e tranformando em algum objeto com css</label>
 </div>
