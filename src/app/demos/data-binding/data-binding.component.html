@@ -1,0 +1,26 @@
+<div class="container main-container">
+    <h3>Interpolação</h3>
+    <p>O numero de cliques é : {{ contarClique }}</p>
+    <hr>
+    <h3>Property binding</h3>
+    <button class="btn btn-danger" [disabled]="contarClique >= 10">Info</button>
+    <hr>
+    <h3>Imagem vindo do 'component.ts' através de atributo</h3>
+    <img [src]="urlImagem" alt="" height="150px" width="200px">
+    <hr>
+
+    <h3>Event binding - chamando uma função de adicionar</h3>
+    <button class="btn btn-primary me-4" (click)="adicionarClique()">CLique aqui</button>
+    <button class="btn btn-warning" (click)="zeraContador()" [disabled]='contarClique < 10'>Zerar o contador</button>
+    <hr>
+    <h3>Two-way binding (modo mais linhas de codigo)</h3>
+    <input type="text" (keyup)='keyUp($event)' placeholder="Digite o seu nome">
+    <br>
+    <label>Seu nome é: {{nome1}}</label>
+    <hr>
+    <h3>Usando o Two-way data binding de forma mais fácil, -ATENÇÃO, IMPORTAR O FORMSMODULE no app.module para funcionar
+    </h3>
+    <input type="text" [(ngModel)]="nome2" placeholder="Digite o seu nome">
+    <br>
+    <label>Seu nome é: {{nome2}}</label>
+</div>
