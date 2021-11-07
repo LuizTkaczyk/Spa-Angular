@@ -1,3 +1,4 @@
+import { ProdutoService } from './produtos/produtos.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 
 @NgModule({
   declarations: [
@@ -22,16 +25,17 @@ import { FormsModule } from '@angular/forms';
     SobreComponent,
     ContatoComponent,
     DataBindingComponent,
-    
-    
-    
+    ListaProdutoComponent,
   ],
   imports: [
     BrowserModule,
     [RouterModule.forRoot(routes)],//'routes' VEM DA CONSTANTE CRIADA EM app.routes.ts
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProdutoService //importando o produto service
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
