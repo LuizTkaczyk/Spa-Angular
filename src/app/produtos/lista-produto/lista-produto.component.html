@@ -6,24 +6,41 @@
             <div class="card h-100">
 
                 <!-- OBTENDO O ID DO PRUDUTO COM O ROUTER LINK -->
-                <a class="text-decoration-none" [routerLink]="['/produto-detalhe', produto.id]" >
+                <a class="text-decoration-none" [routerLink]="['/produto-detalhe', produto.id]">
                     <div style="align-content:center;">
                         <img src="assets/{{produto.imagem}}" height="164px" width="253px" alt="">
                     </div>
                 </a>
-                <h4 class="card-title"></h4>
 
-                <div class="card-body">
-                   <h4 class="card-title">{{produto.nome}}</h4>
-                   <p>Por apenas:</p>
-                   <div>
-                       <h4>R${{produto.valor}}</h4>
-                   </div>
+
+                <h4 class="card-title">{{produto.nome | titlecase}}</h4>
+                <!-- SE O produto.promocao FOR VERDADEIRO EXIBE 'PROMOÇÃO', CASO FALSE , EXIBE 'POR APENAS' -->
+                <div  [ngSwitch]="produto.promocao">
+                    <p *ngSwitchCase="true">Promoção</p>
+                    <p *ngSwitchCase="false">Por apenas</p>
+                </div>
+
+                <div class="card-body" *ngIf="produto.promocao">
+                    <!-- USO DO PIPE PARA DEIXAR A PRIMEIRA LETRA SEMPRE MAIUSCULA -->
+                    <div>
+                        <!-- ADICIONANDO O PIPE DE MOEDA BRASILEIRA -->
+                        <h4> <small><del>{{produto.valor | currency:'BRL'}}</del></small>
+                            Por: {{produto.valorPromo| currency:'BRL'}}
+                        </h4>
+                    </div>
+                </div>
+                <div class="card-body" *ngIf="!produto.promocao">
+                    <!-- USO DO PIPE PARA DEIXAR A PRIMEIRA LETRA SEMPRE MAIUSCULA -->
+                    <div>
+                        <!-- ADICIONANDO O PIPE DE MOEDA BRASILEIRA -->
+                        <h4>{{produto.valor | currency:'BRL'}}</h4>
+                    </div>
                 </div>
 
                 <div class="card-footer">
                     <!-- USANDO O ROUTER LINK PARA ADICIONAR AO CARRINHO PELO ID -->
-                    <a class="btn btn-primary" [routerLink]="['/carrinho', produto.id]" routerLinkActive="router-link-active" >
+                    <a class="btn btn-primary" [routerLink]="['/carrinho', produto.id]"
+                        routerLinkActive="router-link-active">
                         <span class="fa fa-shopping-cart"></span> Comprar
                     </a>
                 </div>

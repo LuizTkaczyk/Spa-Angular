@@ -1,5 +1,5 @@
 import { ProdutoService } from './produtos/produtos.service';
-import { NgModule } from '@angular/core';
+import { NgModule, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,10 +11,18 @@ import { ContatoComponent } from './institucional/contato/contato.component';
 //imports para as rotas
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+
+
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
+
+//IMPORT DA FORMATAÇÃO DA MOEDA BRASILEIRA
+import ptBr from '@angular/common/locales/pt'
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
 
 @NgModule({
   declarations: [
@@ -34,7 +42,8 @@ import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.co
     HttpClientModule
   ],
   providers: [
-    ProdutoService //importando o produto service
+    ProdutoService, //importando o produto service
+    {provide:LOCALE_ID, useValue:'pt'}//para usar o padrão de moeda brasileiro
   ],
   bootstrap: [AppComponent]
 })
