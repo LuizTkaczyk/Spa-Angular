@@ -14,13 +14,14 @@ import { routes } from './app.routes';
 
 
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 
 //IMPORT DA FORMATAÇÃO DA MOEDA BRASILEIRA
 import ptBr from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
+import { CadastroComponent } from './demos/reactive-forms/cadastro/cadastro.component';
 
 registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
 
@@ -34,11 +35,13 @@ registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
     ContatoComponent,
     DataBindingComponent,
     ListaProdutoComponent,
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
     [RouterModule.forRoot(routes)],//'routes' VEM DA CONSTANTE CRIADA EM app.routes.ts
     FormsModule,
+    ReactiveFormsModule,//IMPORTAÇÃO PARA TRABALHAR COM FORMULARIOS
     HttpClientModule
   ],
   providers: [

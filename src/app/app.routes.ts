@@ -4,6 +4,7 @@ import { ContatoComponent } from './institucional/contato/contato.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { HomeComponent } from './navegacao/home/home.component';
 import { Routes } from "@angular/router";
+import { CadastroComponent } from './demos/reactive-forms/cadastro/cadastro.component';
 
 //configurando as rotas do projeto
 export const routes: Routes = [
@@ -39,6 +40,10 @@ export const routes: Routes = [
     {
         path:'carrinho/:id',
         component: ListaProdutoComponent
+    },
+    {
+        path:'formulario',
+        component: CadastroComponent
     }
 
 ]
