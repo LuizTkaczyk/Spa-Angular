@@ -23,8 +23,9 @@ import ptBr from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
 import { CadastroComponent } from './demos/reactive-forms/cadastro/cadastro.component';
 
-import { NgBrazil } from 'ng-brazil'
+import { NgBrazil, TextMask } from 'ng-brazil' //versão 2.0.9!!!!!!!!!!!!!!!!!!!!
 import { TextMaskModule } from 'angular2-text-mask';
+import { CustomFormsModule } from 'ng2-validation';
 
 
 registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
@@ -47,6 +48,7 @@ registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
     FormsModule,
     NgBrazil,
     TextMaskModule,
+    CustomFormsModule,
     
 
     HttpClientModule,

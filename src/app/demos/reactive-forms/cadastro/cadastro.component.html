@@ -28,8 +28,9 @@
             <div class="form-group">
                 <label class="col-md-2 control-label">CPF</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="cpf" placeholder="CPF obrigatório" 
-                        formControlName="cpf" [ngClass]="{'is-invalid': cadastroForm.get('cpf').errors && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)}" cpf [textMask]="{mask: MASKS.cpf.textMask}">
+                    <input type="text" class="form-control" id="cpf" placeholder="CPF obrigatório" formControlName="cpf"
+                        [ngClass]="{'is-invalid': cadastroForm.get('cpf').errors && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)}"
+                        cpf [textMask]="{mask: MASKS.cpf.textMask}">
 
 
                     <!-- Com o ngIf o span aparece ou não, dependendo se o campo foi tocado -->
@@ -46,7 +47,8 @@
                 <label class="col-md-2 control-label">E-mail</label>
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="email" placeholder="E-mail obrigatório"
-                        formControlName="email" [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)}">
+                        formControlName="email"
+                        [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)}">
                     <!-- Com o ngIf o span aparece ou não, dependendo se o campo foi tocado -->
                     <span class="text-danger"
                         *ngIf="cadastroForm.get('email').errors?.['required'] && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
@@ -65,6 +67,9 @@
                 <div class="col-md-10">
                     <input type="text" class="form-control" id="senha" placeholder="Senha obrigatório"
                         formControlName="senha">
+
+                    <span class="text-danger"
+                        *ngIf="cadastroForm.get('senha')?.errors?.['rangeLength'] && (cadastroForm.get('senha').dirty || cadastroForm.get('senha').touched)">Tamanho inválido</span>
                 </div>
 
 

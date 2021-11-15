@@ -1,7 +1,8 @@
 import { Usuario } from './../../models/usuario';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
+import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,13 +24,21 @@ export class CadastroComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
+    //variaveis para comparar se as senhas são iguais
+    let senha  = new FormControl('',[Validators.required, CustomValidators.rangeLength([6,15])]) //A SENHA DEVE TER DE 6 A 15 DIGITOS
+    let senhaConf  = new FormControl('',[Validators.required, CustomValidators.rangeLength([6,15]), CustomValidators.equalTo(senha)])
+
+
+
+
     //criando um grupo de formulario com o formBuilder(recomendado) usando arrays
     this.cadastroForm = this.formBuilder.group({
-      nome: ['', Validators.required],
+      nome: ['',[ Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       cpf: ['', [Validators.required,NgBrazilValidators.cpf]],
       email: ['',[Validators.required, Validators.email]],
-      senha: [''],
-      senhaConfirmacao: ['']
+      senha: senha,
+      senhaConfirmacao: senhaConf
     })
 
   }
