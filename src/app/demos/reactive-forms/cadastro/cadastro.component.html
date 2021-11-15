@@ -10,7 +10,7 @@
                 <label class="col-md-2 control-label">Nome completo</label>
                 <div class="col-md-10">
                     <!-- USO DO FORMCONTROLNAME , COM A VARIÁVEL CRIADA NO COMPONENT -->
-                    <input type="text" class="form-control" id="nome" placeholder="Nome obrigatório"
+                    <input type="text" class="form-control" id="nome" placeholder="Nome obrigatório" maxlength="50"
                         formControlName="nome"
                         [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)}">
 
