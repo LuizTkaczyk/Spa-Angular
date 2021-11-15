@@ -41,8 +41,11 @@ registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
     BrowserModule,
     [RouterModule.forRoot(routes)],//'routes' VEM DA CONSTANTE CRIADA EM app.routes.ts
     FormsModule,
+
     HttpClientModule,
     ReactiveFormsModule //MÓDULO PARA A CRIAÇÃO DE FORMULARIOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
   ],
   providers: [
     ProdutoService, //importando o produto service

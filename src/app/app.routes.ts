@@ -6,8 +6,10 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { HomeComponent } from './navegacao/home/home.component';
 import { Routes } from "@angular/router";
 
+
 //configurando as rotas do projeto
 export const routes: Routes = [
+
     { path: '', redirectTo: '/home', pathMatch: 'full' },
 
     { path: 'home', component: HomeComponent },
@@ -25,5 +27,6 @@ export const routes: Routes = [
     { path: 'carrinho/:id', component: ListaProdutoComponent },
 
     { path: 'cadastro', component: CadastroComponent }
+
 
 ]
