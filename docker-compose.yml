@@ -1,0 +1,7 @@
+version: '2.1'
+services:
+  projeto-spa:
+    image: projeto-spa
+    build: .
+    ports:
+      - 8081:80
