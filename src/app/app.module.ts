@@ -23,6 +23,10 @@ import ptBr from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
 import { CadastroComponent } from './demos/reactive-forms/cadastro/cadastro.component';
 
+import { NgBrazil } from 'ng-brazil'
+import { TextMaskModule } from 'angular2-text-mask';
+
+
 registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
 
 @NgModule({
@@ -41,6 +45,9 @@ registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
     BrowserModule,
     [RouterModule.forRoot(routes)],//'routes' VEM DA CONSTANTE CRIADA EM app.routes.ts
     FormsModule,
+    NgBrazil,
+    TextMaskModule,
+    
 
     HttpClientModule,
     ReactiveFormsModule //MÓDULO PARA A CRIAÇÃO DE FORMULARIOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
