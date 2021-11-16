@@ -16,7 +16,7 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
 //imports para as rotas
 import { RouterModule } from '@angular/router';
-import { routes } from './app.routes';
+import { routes, AppRoutingModule } from './app.routes';
 
 
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
@@ -47,18 +47,15 @@ registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
   ],
   imports: [
     BrowserModule,
-    [RouterModule.forRoot(routes)],//'routes' VEM DA CONSTANTE CRIADA EM app.routes.ts
     FormsModule,
     NgBrazil,
     TextMaskModule,
     CustomFormsModule,
-    
-
     HttpClientModule,
     ReactiveFormsModule, //MÓDULO PARA A CRIAÇÃO DE FORMULARIOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    NavegacaoModule // o modulo de navegação traz o modulo personalizado com o Home, o footer e o menu
-
+    NavegacaoModule, // o modulo de navegação traz o modulo personalizado com o Home, o footer e o menu
+    AppRoutingModule // Modulo de rotas, vindo de app.routes.ts
   ],
   providers: [
     ProdutoService, //importando o produto service
