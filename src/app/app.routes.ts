@@ -21,7 +21,7 @@ export const routes: Routes = [
 
     { path: 'databinding', component: DataBindingComponent },
 
-    { path: 'produtos', component: ListaProdutoComponent },
+    { path: 'produtos', loadChildren:()=> import('../app/produtos/produto.module').then( m => m.ProdutoModule) }, //LAZY LOADING DOS PRODUTOS
 
     { path: 'produto-detalhe/:id', component: ListaProdutoComponent },
 

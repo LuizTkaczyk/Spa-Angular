@@ -22,7 +22,7 @@ import { routes, AppRoutingModule } from './app.routes';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
+//import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 
 //IMPORT DA FORMATAÇÃO DA MOEDA BRASILEIRA
 import ptBr from '@angular/common/locales/pt'
@@ -42,7 +42,7 @@ registerLocaleData(ptBr) // para usar o padrão de moeda brasileiro
     SobreComponent,
     ContatoComponent,
     DataBindingComponent,
-    ListaProdutoComponent,
+    //ListaProdutoComponent, //ESTÁ VINDO DE produto.module em /produtos
     CadastroComponent,
   ],
   imports: [
